@@ -27,6 +27,8 @@ class UserProfileManager(BaseUserManager):
         user.is_staff = True
         user.save(using=self.db)
 
+        return user
+
 class UserProfile(AbstractBaseUser, PermissionsMixin):
     """Database mode for users in the system"""
     email = models.EmailField(max_length=255, unique=True)
